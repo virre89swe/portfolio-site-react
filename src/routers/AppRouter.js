@@ -7,6 +7,7 @@ import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import ProjectsPage from '../components/ProjectsPage';
 import Footer from '../components/Footer';
+import NoPageFound from '../components/NoPageFound';
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -17,9 +18,10 @@ const AppRouter = () => (
             <section className="content">
                 <Switch>
                     <Redirect from="/" to ="/about" exact={true}/>
-                    <Route path="/about" component={AboutPage}/>
-                    <Route path="/projects" component={ProjectsPage}/>
-                    <Route path="/contact" component={ContactPage}/>
+                    <Route path="/about" component={AboutPage} exact={true}/>
+                    <Route path="/projects" component={ProjectsPage} exact={true}/>
+                    <Route path="/contact" component={ContactPage} exact={true}/>
+                    <Route component={NoPageFound}/>
                 </Switch>
             </section>
         </div>
